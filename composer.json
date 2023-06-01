@@ -1,0 +1,30 @@
+{
+    "name": "millancore/taskwarrior",
+    "description": "Taskwarrior PHP Manager",
+    "type": "project",
+    "require": {
+        "php": "8.2"
+    },
+    "require-dev": {
+        "pestphp/pest": "2.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Taskwarrior\\": "src/",
+            "Framework\\": "framework/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Millan",
+            "email": "juanes14569@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
