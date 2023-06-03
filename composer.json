@@ -12,7 +12,8 @@
     "autoload": {
         "psr-4": {
             "Taskwarrior\\": "src/",
-            "Framework\\": "framework/"
+            "Framework\\": "framework/",
+            "Tests\\" : "tests/"
         }
     },
     "authors": [

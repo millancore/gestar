@@ -2,12 +2,12 @@
 
 namespace Framework\Http;
 
-class Response
+readonly class Response
 {
     public function __construct(
-        public readonly string $content,
-        public readonly int $status,
-        public readonly array $headers
+        public string $content,
+        public int    $status,
+        public array  $headers = []
     )
     {
     }
@@ -21,6 +21,21 @@ class Response
         }
 
         echo $this->content;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    public function getStatusCode(): int
+    {
+        return $this->status;
+    }
+
+    public function getHeaders(): array
+    {
+        return $this->headers;
     }
 
 }

@@ -10,16 +10,16 @@ class Command
     {
     }
 
-    public function exec(string $command): string
+    public function exec(): string
     {
-        return shell_exec($command);
+        return shell_exec($this->command);
     }
 
     public function toArray() : array
     {
         $data = [];
 
-        $output = $this->exec($this->command);
+        $output = $this->exec();
 
         if ($output === null) {
             echo "Failed to execute the command.";

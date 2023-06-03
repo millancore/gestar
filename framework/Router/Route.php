@@ -11,8 +11,15 @@ class Route
         readonly mixed $handler
     )
     {
+        //
     }
 
+
+    /**
+     * Match the route with the uri
+     * @param string $uri
+     * @return array|false
+     */
     public function match(string $uri): array|false
     {
         $pattern = preg_replace('/\//', '\/', $this->path);
@@ -26,6 +33,7 @@ class Route
     }
 
     /**
+     * Handle the route Closure or [Controller::class, 'method']
      * @throws Exception
      */
     public function handler(array $params): mixed

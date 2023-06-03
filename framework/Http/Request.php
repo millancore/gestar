@@ -12,17 +12,23 @@ class Request
          public readonly array $server
     )
     {
+        //
     }
 
 
    public static function createFromGlobals()
    {
-       return new static(
-           $_GET,
-           $_POST,
-           $_COOKIE,
-           $_FILES,
-           $_SERVER
-       );
+       return new static($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER );
    }
+
+    public function getMethod() : string
+    {
+        return $this->server['REQUEST_METHOD'];
+    }
+
+    public function getPathInfo() : string
+    {
+        return parse_url($this->server['REQUEST_URI'], PHP_URL_PATH);
+    }
+
 }

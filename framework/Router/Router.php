@@ -6,11 +6,17 @@ use Exception;
 
 class Router
 {
-
     public function __construct(
         protected array $routes = []
     )
     {
+    }
+
+    public function addCollection(RouteCollection $collection) : void
+    {
+        foreach ($collection as $route) {
+            $this->addRoute($route->method, $route->pattern, $route->handler);
+        }
     }
 
     public function addRoute(string $method, string $pattern, mixed $handler) : void
