@@ -3,7 +3,8 @@
     "description": "Taskwarrior PHP Manager",
     "type": "project",
     "require": {
-        "php": "8.2"
+        "php": "8.2",
+        "ext-mysqli": "*"
     },
     "require-dev": {
         "pestphp/pest": "2.x-dev"
@@ -14,7 +15,10 @@
             "Taskwarrior\\": "src/",
             "Framework\\": "framework/",
             "Tests\\" : "tests/"
-        }
+        },
+        "files": [
+            "framework/View/helper.php"
+        ]
     },
     "authors": [
         {

@@ -2,47 +2,53 @@
 
 namespace Taskwarrior\Http;
 
+use Framework\DB\MySqlConnection;
+use Framework\DB\QueryBuilder;
 use Framework\Http\Response;
-use Taskwarrior\Command;
+use Framework\View\View;
 
 class TaskController
 {
     public function list()
     {
-        $data = (new Command('task status:pending export'))->toArray();
+        $tasks = [
+            [
+                'id' => 1,
+                'description' => 'Buy milk'
+            ],
+        ];
 
-        $content = '
-<form action="/" method="post">
-    <input type="text" name="description" placeholder="Description">
-    <button type="submit">Create</button>
-    
-<ul>';
-
-        foreach ($data as $task) {
-            $content .= sprintf(
-                '<li><a href="task.php?id=%s">%s</a></li>',
-                $task->id,
-                $task->description
-            );
-        }
-
-        $content .= '</ul>';
 
         return new Response(
-            $content,
+            View::render('create_task', compact('tasks')),
             200,
             ['Content-Type: text/html']
         );
 
     }
 
+    /**
+     * Save Task in DB
+     * @return void
+     */
     public function store()
     {
-        // Create Task in taskwarrior
-        shell_exec(sprintf('task add %s', escapeshellarg($_POST['description'])));
+        $dbConnection = new MySqlConnection(
+            $_ENV['DB_HOST'],
+            $_ENV['DB_USER'],
+            $_ENV['DB_PASSWORD'],
+            $_ENV['DB_DATABASE'],
+        );
 
-        // redirect to index
-        header('Location: /');
+        $query = (new QueryBuilder())
+        ->insert('tasks', [
+            'description' => $_POST['description'],
+            'status' => 'pending',
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+
+
+
     }
 
 }
