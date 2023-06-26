@@ -1,24 +1,20 @@
 {
-    "name": "millancore/taskwarrior",
-    "description": "Taskwarrior PHP Manager",
+    "name": "millancore/gestar",
+    "description": "Task Manager",
     "type": "project",
     "require": {
-        "php": "8.2",
-        "ext-mysqli": "*"
+        "php": "8.2.*",
+        "millancore/xfrmk": "dev-main"
     },
     "require-dev": {
-        "pestphp/pest": "2.x-dev"
+        "pestphp/pest": "^2.6"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Taskwarrior\\": "src/",
-            "Framework\\": "framework/",
+            "Gestar\\": "src/",
             "Tests\\" : "tests/"
-        },
-        "files": [
-            "framework/View/helper.php"
-        ]
+        }
     },
     "authors": [
         {
@@ -26,7 +22,12 @@
             "email": "juanes14569@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "repositories": [{
+        "type": "path",
+        "url": "framework"
+    }
+    ],
+    "minimum-stability": "stable",
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true

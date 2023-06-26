@@ -1,11 +1,11 @@
 <?php
 
-namespace Taskwarrior\Http;
+namespace Gestar\Http;
 
-use Framework\DB\MySqlConnection;
-use Framework\DB\QueryBuilder;
-use Framework\Http\Response;
-use Framework\View\View;
+use Xfrmk\DB\MySqlConnection;
+use Xfrmk\DB\QueryBuilder;
+use Xfrmk\Http\Response;
+use Xfrmk\View\View;
 
 class TaskController
 {

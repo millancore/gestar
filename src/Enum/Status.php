@@ -1,6 +1,6 @@
 <?php
 
-namespace Taskwarrior\Enum;
+namespace Gestar\Enum;
 
 enum Status: string
 {

@@ -4,15 +4,15 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 define('ROOT_APP', dirname(__DIR__));
 
-use Framework\Http\Kernel;
-use Framework\Http\Request;
-use Framework\Router\Router;
-use Framework\View\Config;
-use Framework\View\Resolver;
+use Xfrmk\Http\Kernel;
+use Xfrmk\Http\Request;
+use Xfrmk\Router\Router;
+use Xfrmk\View\Config;
+use Xfrmk\View\Resolver;
 
 // Load Config
 try {
-    Framework\Config\Config::load(ROOT_APP . '/.env');
+    \Xfrmk\Config\Config::load(ROOT_APP . '/.env');
 } catch (Exception $e) {
     die($e->getMessage());
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Framework\Router\RouteCollection;
-use Taskwarrior\Http\TaskController;
+use Xfrmk\Router\RouteCollection;
+use Gestar\Http\TaskController;
 
 $routes = new RouteCollection;
 
