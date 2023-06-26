@@ -1,0 +1,30 @@
+{
+    "name": "millancore/xfrmk",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Xfrmk\\": "src/"
+        },
+        "files": [
+            "src/View/helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xfrmk\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Millan",
+            "email": "juanes14569@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^10.2",
+        "phpstan/phpstan": "^1.10",
+        "symfony/var-dumper": "^6.3"
+    }
+}
